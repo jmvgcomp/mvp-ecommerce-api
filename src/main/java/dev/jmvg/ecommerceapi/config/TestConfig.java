@@ -1,8 +1,10 @@
 package dev.jmvg.ecommerceapi.config;
 
+import dev.jmvg.ecommerceapi.entities.Category;
 import dev.jmvg.ecommerceapi.entities.Order;
 import dev.jmvg.ecommerceapi.entities.OrderStatus;
 import dev.jmvg.ecommerceapi.entities.User;
+import dev.jmvg.ecommerceapi.repositories.CategoryRepository;
 import dev.jmvg.ecommerceapi.repositories.OrderRepository;
 import dev.jmvg.ecommerceapi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +21,12 @@ public class TestConfig implements CommandLineRunner {
 
     private UserRepository userRepository;
     private OrderRepository orderRepository;
-
+    private CategoryRepository categoryRepository;
     @Autowired
-    public TestConfig(UserRepository userRepository, OrderRepository orderRepository) {
+    public TestConfig(UserRepository userRepository, OrderRepository orderRepository, CategoryRepository categoryRepository) {
         this.userRepository = userRepository;
         this.orderRepository = orderRepository;
+        this.categoryRepository = categoryRepository;
     }
 
 
@@ -31,6 +34,11 @@ public class TestConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+        Category cat1 = new Category(null, "Electronics");
+        Category cat2 = new Category(null, "Books");
+        Category cat3 = new Category(null, "Computers");
+
         User user1 = new User(null, "Maria", "maria@gmail.com", "31231231", "12345");
         User user2 = new User(null, "Brown", "brown@gmail.com", "7515231", "54321");
 
@@ -40,5 +48,6 @@ public class TestConfig implements CommandLineRunner {
 
         userRepository.saveAll(Arrays.asList(user1, user2));
         orderRepository.saveAll(Arrays.asList(order1,order2, order3));
+        categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
     }
 }
