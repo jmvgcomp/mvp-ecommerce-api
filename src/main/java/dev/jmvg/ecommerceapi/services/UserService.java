@@ -10,9 +10,9 @@ import java.util.Optional;
 
 @Service
 public class UserService {
-    @Autowired
     private UserRepository repository;
 
+    @Autowired
     public UserService(UserRepository repository) {
         this.repository = repository;
     }
@@ -21,7 +21,7 @@ public class UserService {
         return repository.findAll();
     }
 
-    public User findByID(Long id){
+    public User findById(Long id){
         Optional<User> obj = repository.findById(id);
         return obj.get();
     }
