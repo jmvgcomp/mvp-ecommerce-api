@@ -1,18 +1,22 @@
 package dev.jmvg.ecommerceapi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.jmvg.ecommerceapi.entities.pk.OrderItemPK;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_order_item")
 public class OrderItem implements Serializable {
     @EmbeddedId
-    private OrderItemPK id;
+    private OrderItemPK id = new OrderItemPK();
     private Integer quantity;
     private Double price;
 
@@ -25,6 +29,8 @@ public class OrderItem implements Serializable {
         this.quantity = quantity;
         this.price = price;
     }
+
+    @JsonIgnore
     public Order getOrder(){
         return id.getOrder();
     }
