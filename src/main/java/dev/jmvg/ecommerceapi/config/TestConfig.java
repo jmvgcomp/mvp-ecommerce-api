@@ -29,9 +29,6 @@ public class TestConfig implements CommandLineRunner {
         this.orderItemRepository = orderItemRepository;
     }
 
-
-
-
     @Override
     public void run(String... args) throws Exception {
 
