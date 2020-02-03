@@ -1,6 +1,11 @@
 # MVP-SpringAPI
 
-This is a simple API project for e-commerce in order to fix knowledge in Spring and Java, as it is a simple project, it has not been documented with swagger yet.
+This is a simple API project for e-commerce in order to fix knowledge in Spring and Java made from the course of Professor Nelio Alves, as it is a simple project, so it has not been documented with Swagger yet.
+
+## UML
+
+![UML PROJECT](https://i.imgur.com/im1w5IR.jpg)
+
 
 ## Installation
 
